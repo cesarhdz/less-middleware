@@ -1,0 +1,19 @@
+/**
+ * less-error.css
+ * 
+ * This file is returned bacause an error has ocurred during lesss compilation
+ */
+body{
+  white-space:pre
+}
+
+body:before{
+  /* Error is formatted using message, filename and line */
+  content:'%s\A[LESS Error]\A    filename: [%s]\A    line: [%s]';
+  
+  color:red;
+  padding:1em;
+  background-color:#222;
+  display:block;
+  font: 24px/2 monospace;
+}
