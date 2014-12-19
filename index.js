@@ -32,7 +32,8 @@ module.exports = function(){
 				}
 
 				res.contentType("text/css")
-				res.send(css, 200)
+				
+				res.status(200).send(css)
 			})
 		}
 	}
