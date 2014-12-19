@@ -25,7 +25,7 @@ module.exports = function(){
 			less.render(data.toString(), options, function(e, result){
 				if(e){
 					var util = require('util')
-					css = fs.readFileSync(__dirname + 'css/less-error.css').toString();
+					css = fs.readFileSync(__dirname + '/css/less-error.css').toString();
 					css = util.format(css, e.message, e.filename, e.line)
 				}else{
 					css = result.css
@@ -36,7 +36,7 @@ module.exports = function(){
 			})
 		}
 	}
+|
 
-	
 }
 
