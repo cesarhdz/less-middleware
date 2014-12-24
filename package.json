@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "less": "^2.1.1"
+    "less": "^2.1.1",
+    "vinyl-map": "^1.0.1"
   },
   "devDependencies": {
     "chai": "^1.10.0",

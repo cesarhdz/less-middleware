@@ -1,9 +1,14 @@
-var less = require('less'),
-	fs = require('fs');
+var 
+  less = require('less')
+, through = require('through')
+, fs = require('fs')
 
 
 
 module.exports = function LessCompiler(){
+
+
+	var compiler = this;
 
 
 	this.config = {
@@ -29,6 +34,28 @@ module.exports = function LessCompiler(){
 		}
 	}
 
+	/**
+	 * Creates a function that process less ans can be piped in gulp.src
+	 * 
+	 * @return {function} [description]
+	 */
+	this.build = function(){
+		return through(function(file){
+			var _this = this
+
+		    if (file.isNull()) return this.queue(file)
+		    if (file.isStream()) throw new Error('no support')
+
+		    file.contents = file.contents.toString()
+
+			compiler.process(file.contents, file.filename, function(css){
+			    file = file.clone()
+			    file.contents = new Buffer(minified.code)
+			    this.queue(file)
+			})
+		})
+	}
+
 
 	/**
 	 * wrapper of less render to make build and middleware compatible
@@ -40,7 +67,6 @@ module.exports = function LessCompiler(){
 	 * @return {void}
 	 */
 	this.process = function(string, file, callback){
-
 		var options = {
 			filename: file
 		}

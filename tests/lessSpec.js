@@ -37,4 +37,10 @@ describe('Less', function(){
 	})
 
 
+	describe('build method', function(){
+		it('SHould return a function', function(){
+			expect(compiler.build()).to.be.a('object')
+		})
+	})
+
 })
