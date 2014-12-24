@@ -4,11 +4,15 @@
   "description": "Simple less middleware",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests/ --recursive"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "less": "^2.1.1"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.1.0"
   }
 }
