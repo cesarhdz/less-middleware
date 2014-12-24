@@ -46,12 +46,12 @@ module.exports = function LessCompiler(){
 		    if (file.isNull()) return this.queue(file)
 		    if (file.isStream()) throw new Error('no support')
 
-		    file.contents = file.contents.toString()
+		    var data = file.contents.toString()
 
-			compiler.process(file.contents, file.filename, function(css){
+			compiler.process(data, file.filename, function(css){
 			    file = file.clone()
-			    file.contents = new Buffer(minified.code)
-			    this.queue(file)
+			    file.contents = new Buffer(css)
+			    _this.queue(file)
 			})
 		})
 	}
