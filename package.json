@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "less": "^2.1.1",
-    "vinyl-map": "^1.0.1"
+    "through": "^2.3.6"
   },
   "devDependencies": {
     "chai": "^1.10.0",
