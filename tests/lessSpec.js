@@ -1,4 +1,5 @@
 var expect = require("chai").expect
+  , sinon = require('sinon')
   , Compiler = require("../src/less.js")
 
 
@@ -12,27 +13,27 @@ describe('Less', function(){
 	})
 
 	describe('middleware', function(){
-
-
-		it('Should have middleware method', function(){
-
-			expect(compiler).to.respondTo('middleware');
-			
-		})
-
-
 		it('Should return a function', function(){
-
 			// when
 			var middleware = compiler.middleware()
 
 			//then
-			expect(middleware)
-				.to.be.a('function')
-
+			expect(middleware).to.be.a('function')
 		})
+	})
 
-		
+
+	describe('process method', function(){
+		it('Should call callback function', function(){
+			//given
+			var cb = sinon.spy()
+
+			//when
+			compiler.process('', '', cb)
+
+			//then
+			expect(cb.called).to.be.true
+		})
 	})
 
 

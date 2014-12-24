@@ -7,7 +7,7 @@ module.exports = function LessCompiler(){
 
 
 	this.config = {
-		errorFile = __dirname + '/css/less-error.css'
+		errorFile : __dirname + '/css/less-error.css'
 	}
 
 	this.middleware = function(dir, config){
