@@ -27,7 +27,7 @@ module.exports = function LessCompiler(){
 			var data = fs.readFileSync(file)
 
 
-			this.process(data.toString, file, function(css){
+			compiler.process(data.toString(), file, function(css){
 				res.contentType('text/css')
 				res.status(200).send(css)
 			})
